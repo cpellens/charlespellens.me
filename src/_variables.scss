@@ -1,0 +1,28 @@
+:root {
+    --primary-color: #37b8c4;
+    --secondary-color: #4c4c4c;
+
+    --spacing: 8px;
+    --width: 600px;
+
+    --big-spacing: 4em;
+
+    --font-size: 16pt;
+    --font-family: hero-new, sans-serif;
+
+    --tile-size: 64px;
+    --tile-text-color: white;
+    --anim-time: 0.25s;
+
+    --glass-opacity: 0.2;
+
+    --header-height: 5em;
+}
+
+@media screen and (max-width: 650px) {
+    @import "styles/mobile/mobile";
+}
+
+@media screen and (min-width: 1920px) {
+    @import "styles/large/large";
+}

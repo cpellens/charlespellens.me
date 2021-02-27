@@ -17,6 +17,7 @@
         background-color: var(--secondary-color);
         height: var(--header-height);
         line-height: var(--header-height);
+        padding: 0 1em;
 
         h1 {
             color: var(--primary-color);

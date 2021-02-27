@@ -45,12 +45,12 @@
         display: flex;
         flex-direction: row;
         margin: calc(var(--spacing) * 2);
-        background-color: rgba($buttonColor, 0.3);
+        background-color: rgba($buttonColor, var(--glass-opacity));
         cursor: pointer;
         transition: var(--anim-time) background-color, var(--anim-time) box-shadow;
 
         &:hover {
-            background-color: rgba($buttonColor, 0.5);
+            background-color: rgba($buttonColor, calc(var(--glass-opacity) + 0.2));
             box-shadow: inset 0 0 var(--spacing) rgba($buttonColor, 0.2);
         }
 
@@ -58,7 +58,7 @@
             flex: 1;
 
             &:first-of-type {
-                background-color: rgba($buttonColor, 0.1);
+                background-color: rgba($buttonColor, var(--glass-opacity));
 
                 max-width: var(--tile-size);
                 height: var(--tile-size);
@@ -72,7 +72,7 @@
 
                     > * {
                         flex: 1;
-                        fill: white;
+                        fill: var(--primary-color);
                     }
                 }
             }
@@ -80,8 +80,8 @@
             &:last-of-type {
                 line-height: var(--tile-size);
                 text-align: center;
-                color: white;
-                text-shadow: 0 2px 4px rgba(black, 0.2);
+                color: var(--tile-text-color);
+                text-shadow: 0 1px 4px rgba(black, 0.3);
                 user-select: none;
             }
         }

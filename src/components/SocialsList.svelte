@@ -1,8 +1,8 @@
 <script>
     import Account from "./Social/Account.svelte";
 
-    export let socials  = [];
-    export let config = {};
+    export let socials = [];
+    export let config  = {};
 </script>
 
 <div class="socials">
@@ -15,7 +15,7 @@
 
 <style lang="scss">
     div.socials {
-        background-color: rgba(white, 0.4);
+        background-color: rgba(white, var(--glass-opacity));
         backdrop-filter: blur(6px);
         padding: 2em;
         box-sizing: border-box;
@@ -31,6 +31,7 @@
             font-weight: bolder;
             font-size: 2em;
             margin: 0 0 1em;
+            text-shadow: 0 0.2rem 0.5rem rgba(white, var(--glass-opacity));
         }
     }
 </style>
