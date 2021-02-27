@@ -43,7 +43,7 @@
     figure {
         display: flex;
         flex-direction: row;
-        margin: calc(var(--spacing) * 2);
+        margin: calc(var(--spacing) * 2) 0;
         background-color: rgba($buttonColor, var(--glass-opacity));
         cursor: pointer;
         transition: var(--anim-time) background-color, var(--anim-time) box-shadow;
