@@ -1,10 +1,30 @@
 <script>
     export let socials = [];
+
+    const getIconName = (account) => {
+        switch (account.type) {
+            default:
+                return account.service.toLowerCase();
+        }
+    };
+
+    const getIconType = (account) => {
+        switch (account.type) {
+            case 'service':
+                return 'logo';
+            default:
+                return 'icon';
+        }
+    };
 </script>
 
 {#each socials as account}
     <figure>
-        <aside><span>{account.service}</span></aside>
+        <aside>
+            <span>
+                <box-icon type="{getIconType(account)}" size="md" name="{getIconName(account)}"></box-icon>
+            </span>
+        </aside>
         <aside>{account.value}</aside>
     </figure>
 {/each}
@@ -33,9 +53,18 @@
 
                 max-width: var(--tile-size);
                 height: var(--tile-size);
+                display: flex;
 
                 span {
-                    display: none;
+                    flex: 1;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    > * {
+                        flex: 1;
+                        fill: white;
+                    }
                 }
             }
 

@@ -4,27 +4,32 @@
 
     let socials = [
         {
-            service: 'SnapchatSnapchat',
+            type: 'service',
+            service: 'Snapchat',
             value: 'cpellens'
         },
 
         {
+            type: 'service',
             service: 'Instagram',
             value: 'cpellens'
         },
 
         {
+            type: 'service',
             service: 'Twitter',
             value: 'charles_pellens'
         },
 
         {
+            type: 'service',
             service: 'Spotify',
             value: 'cpellens'
         },
 
         {
-            service: 'E-mail',
+            type: 'general',
+            service: 'envelope',
             value: 'contact@charlespellens.com'
         }
     ];
