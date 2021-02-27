@@ -4,38 +4,35 @@
     document.title = name + ' - Socials';
 </script>
 
-<section>
+<header>
     <h1>
         {#each name.split(' ') as word}
             <span>{word}</span>
         {/each}
     </h1>
-</section>
+</header>
 
 <style lang="scss">
-    h1 {
-        color: var(--primary-color);
-        display: inline-block;
-        font-size: 8em;
-        opacity: 1;
-        text-align: center;
-        text-shadow: 0 0.25rem 0.75rem rgba(black, 0.4);
-        user-select: none;
-        white-space: nowrap;
-        margin: 0;
+    header {
+        background-color: var(--secondary-color);
+        height: var(--header-height);
+        line-height: var(--header-height);
 
-        position: absolute;
-        bottom: 0;
-        left: 1em;
-        transform-origin: top left;
-        transform: rotate(-90deg);
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            opacity: 1;
+            text-shadow: 0 0.25rem 0.75rem rgba(black, 0.4);
+            user-select: none;
+            margin: 0;
 
-        span:nth-of-type(odd) {
-            color: white;
-        }
+            span:nth-of-type(odd) {
+                color: white;
+            }
 
-        span {
-            margin: 0 12px;
+            span {
+                margin: 0 0.5rem;
+            }
         }
     }
 </style>

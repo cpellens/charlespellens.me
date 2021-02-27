@@ -1,80 +1,36 @@
 <script>
-    export let socials = [];
+    import Account from "./Social/Account.svelte";
 
-    const getIconName = (account) => {
-        switch (account.type) {
-            default:
-                return account.service.toLowerCase();
-        }
-    };
-
-    const getIconType = (account) => {
-        switch (account.type) {
-            case 'service':
-                return 'logo';
-            default:
-                return 'icon';
-        }
-    };
+    export let socials  = [];
+    export let config = {};
 </script>
 
-{#each socials as account}
-    <figure>
-        <aside>
-            <span>
-                <box-icon type="{getIconType(account)}" size="md" name="{getIconName(account)}"></box-icon>
-            </span>
-        </aside>
-        <aside>{account.value}</aside>
-    </figure>
-{/each}
+<div class="socials">
+    <h2>Social Media Accounts</h2>
+
+    {#each socials as account}
+        <Account bind:account bind:config/>
+    {/each}
+</div>
 
 <style lang="scss">
-    $buttonColor: white;
+    div.socials {
+        background-color: rgba(white, 0.4);
+        backdrop-filter: blur(6px);
+        padding: 2em;
+        box-sizing: border-box;
+        margin: var(--big-spacing) auto 0;
+        width: var(--width);
 
-    figure {
-        display: flex;
-        flex-direction: row;
-        margin: calc(var(--spacing) * 2);
-        background-color: rgba($buttonColor, 0.3);
-        cursor: pointer;
-        transition: var(--anim-time) background-color, var(--anim-time) box-shadow;
-
-        &:hover {
-            background-color: rgba($buttonColor, 0.5);
-            box-shadow: inset 0 0 var(--spacing) rgba($buttonColor, 0.2);
-        }
-
-        aside {
-            flex: 1;
-
-            &:first-of-type {
-                background-color: rgba($buttonColor, 0.1);
-
-                max-width: var(--tile-size);
-                height: var(--tile-size);
-                display: flex;
-
-                span {
-                    flex: 1;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-
-                    > * {
-                        flex: 1;
-                        fill: white;
-                    }
-                }
-            }
-
-            &:last-of-type {
-                line-height: var(--tile-size);
-                text-align: center;
-                color: white;
-                text-shadow: 0 2px 4px rgba(black, 0.2);
-                user-select: none;
-            }
+        h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 0;
+            line-height: 1em;
+            user-select: none;
+            font-weight: bolder;
+            font-size: 2em;
+            margin: 0 0 1em;
         }
     }
 </style>

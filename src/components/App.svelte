@@ -2,6 +2,14 @@
     import Name from "./Name.svelte";
     import SocialsList from "./SocialsList.svelte";
 
+    let config = {
+        snapchat: 'https://snapchat.com/add/',
+        instagram: 'https://instagram.com/',
+        twitter: 'https://twitter.com/',
+        spotify: 'https://open.spotify.com/user/',
+        envelope: 'mailto:'
+    };
+
     let socials = [
         {
             type: 'service',
@@ -24,7 +32,8 @@
         {
             type: 'service',
             service: 'Spotify',
-            value: 'cpellens'
+            value: '1214513760',
+            label: 'Charles on Spotify'
         },
 
         {
@@ -38,38 +47,5 @@
 <Name name="Charles Pellens"/>
 
 <main>
-    <h2>Social Media Accounts</h2>
-
-    <SocialsList bind:socials/>
+    <SocialsList bind:socials bind:config/>
 </main>
-
-<style lang="scss">
-    :root {
-        --primary-color: #984444;
-        --secondary-color: #531d1d;
-        --spacing: 8px;
-        --font-size: 14pt;
-        --tile-size: 64px;
-        --anim-time: 0.25s;
-    }
-
-    main {
-        background-color: rgba(white, 0.4);
-        backdrop-filter: blur(6px);
-        width: 600px;
-        padding: var(--spacing);
-        margin: 8em auto;
-        box-sizing: border-box;
-        font-size: var(--font-size);
-
-        h2 {
-            color: var(--secondary-color);
-            text-align: center;
-            margin: 0;
-            line-height: 1.5em;
-            user-select: none;
-            font-weight: bolder;
-            font-size: 2em;
-        }
-    }
-</style>

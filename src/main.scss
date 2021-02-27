@@ -1,15 +1,47 @@
-html {
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 body {
     background-image: url("/dist/assets/images/bkg.jpg");
     background-size: cover;
     font-family: sans-serif;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    width: 100vw;
+    font-size: var(--font-size);
+}
+
+:root {
+    --primary-color: #37b8c4;
+    --secondary-color: #4c4c4c;
+
+    --spacing: 8px;
+    --width: 600px;
+
+    --big-spacing: 4em;
+
+    --font-size: 16pt;
+
+    --tile-size: 64px;
+    --anim-time: 0.25s;
+
+    --header-height: 5em;
+}
+
+@media screen and (max-width: 650px) {
+    :root {
+        --width: 100%;
+        --header-height: 4em;
+        --big-spacing: 1em;
+        --font-size: 14pt;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    :root {
+        --width: 1200px;
+        --font-size: 24pt;
+        --spacing: 16px;
+        --tile-size: 96px;
+    }
 }
