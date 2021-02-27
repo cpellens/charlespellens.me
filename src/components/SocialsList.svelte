@@ -23,7 +23,7 @@
         width: var(--width);
 
         h2 {
-            color: var(--secondary-color);
+            color: var(--tertiary-color);
             text-align: center;
             padding: 0;
             line-height: 1em;

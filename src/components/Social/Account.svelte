@@ -40,7 +40,6 @@
 
 <style lang="scss">
     $buttonColor: white;
-
     figure {
         display: flex;
         flex-direction: row;
@@ -72,7 +71,7 @@
 
                     > * {
                         flex: 1;
-                        fill: var(--primary-color);
+                        fill: var(--tertiary-color);
                     }
                 }
             }
