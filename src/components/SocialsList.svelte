@@ -16,7 +16,7 @@
 <style lang="scss">
     div.socials {
         background-color: rgba(white, var(--glass-opacity));
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(var(--glass-blur));
         padding: 2em calc(var(--big-spacing) * 0.5);
         box-sizing: border-box;
         margin: var(--big-spacing) auto 0;
