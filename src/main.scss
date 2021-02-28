@@ -1,12 +1,13 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: calc(100% - var(--header-height));
 }
 
 body {
     background-image: url("/dist/assets/images/bkg.jpg");
     background-size: cover;
+    background-attachment: fixed;
     font-family: var(--font-family);
     font-size: var(--font-size);
 }

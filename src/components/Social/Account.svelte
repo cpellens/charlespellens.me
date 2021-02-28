@@ -39,8 +39,12 @@
 </figure>
 
 <style lang="scss">
+    @import '../../styles/animations/fade-in.scss';
+
     $buttonColor: white;
     figure {
+        @include fadeIn;
+
         display: flex;
         flex-direction: row;
         margin: calc(var(--spacing) * 2) 0;

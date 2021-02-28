@@ -19,7 +19,7 @@
         backdrop-filter: blur(var(--glass-blur));
         padding: 2em calc(var(--big-spacing) * 0.5);
         box-sizing: border-box;
-        margin: var(--big-spacing) auto 0;
+        margin: 0 auto;
         width: var(--width);
 
         h2 {
