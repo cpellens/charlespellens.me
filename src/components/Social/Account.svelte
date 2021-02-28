@@ -49,12 +49,18 @@
         flex-direction: row;
         margin: calc(var(--spacing) * 2) 0;
         cursor: pointer;
-        transition: var(--anim-time) background-color, var(--anim-time) box-shadow;
+        transition: var(--anim-time) background-color;
         border: solid rgba(white, var(--glass-opacity)) calc(var(--spacing) * 0.25);
         box-sizing: border-box;
 
         &:hover {
             background-color: rgba($buttonColor, var(--glass-opacity));
+
+            aside:first-of-type {
+                span > * {
+                    transform: rotate(-11.25deg) scale(1.1);
+                }
+            }
         }
 
         &:last-of-type {
@@ -80,6 +86,7 @@
                     > * {
                         flex: 1;
                         fill: var(--tertiary-color);
+                        transition: transform var(--anim-time);
                     }
                 }
             }
