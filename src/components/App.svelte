@@ -1,10 +1,9 @@
 <script>
-    import SocialsList from "./SocialsList.svelte";
-    import AboutMe from "./Profile/AboutMe.svelte";
-
     import 'boxicons';
+    import AboutMe from "./Profile/AboutMe.svelte";
     import Bar from "./Header/Bar.svelte";
     import FooterBar from "./Footer/Bar.svelte";
+    import List from "./Social/List.svelte";
 
     let config = {
         snapchat: 'https://snapchat.com/add/',
@@ -69,13 +68,28 @@
 
 <main>
     <AboutMe bind:profile/>
-    <SocialsList bind:socials bind:config/>
+    <List bind:socials bind:config/>
 </main>
 
-<FooterBar />
+<FooterBar/>
 
-<style>
-    @import '../main.scss';
+<style lang="scss">
+    @import "../variables";
+    @import "../styles/components";
+
+    :global(html, body) {
+        margin: 0;
+        padding: 0;
+        height: calc(100% - var(--header-height));
+    }
+
+    :global(body) {
+        background-image: url("/dist/assets/images/bkg.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: var(--font-family);
+        font-size: var(--font-size);
+    }
 
     main {
         margin-top: calc(var(--header-height) + var(--spacing));

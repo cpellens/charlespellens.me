@@ -1,5 +1,5 @@
 <script>
-    import Account from "./Social/Account.svelte";
+    import Account from "./Account.svelte";
 
     export let socials = [];
     export let config  = {};
