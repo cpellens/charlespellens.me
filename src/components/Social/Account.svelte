@@ -57,6 +57,10 @@
             box-shadow: inset 0 0 var(--spacing) rgba($buttonColor, 0.2);
         }
 
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
         aside {
             flex: 1;
 

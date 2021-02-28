@@ -1,30 +1,61 @@
+$glass-blur: 16px;
+$glass-opacity: 0.2;
+
+$color-primary: #c6eadb;
+$color-secondary: rgba(white, var(--glass-opacity));
+$color-tertiary: #ffffbe;
+$color-background: #ffaabb;
+
+$header-height: 5em;
+$width: 600px;
+
+$spacing: 12px;
+$big-spacing: 4em;
+
+$font-size: 16pt;
+$font-family: hero-new, sans-serif;
+
+$tile-size: 64px;
+$tile-text-color: white;
+
+$anim-time: 0.25s;
+
+$background: linear-gradient(225deg, $color-background, #{darken($color-background, 10%)});
+
+/**
+ * Set up standard CSS3 variables
+ */
+
 :root {
-    --primary-color: #37b8c4;
-    --secondary-color: #4c4c4c;
-    --tertiary-color: #fffd9b;
+    --primary-color: #{$color-primary};
+    --secondary-color: #{$color-secondary};
+    --tertiary-color: #{$color-tertiary};
+    --background-color: #{$color-background};
 
-    --spacing: 12px;
-    --width: 600px;
+    --header-height: #{$header-height};
+    --width: #{$width};
 
-    --big-spacing: 4em;
+    --spacing: #{$spacing};
 
-    --font-size: 16pt;
-    --font-family: hero-new, sans-serif;
+    --big-spacing: #{$big-spacing};
 
-    --tile-size: 64px;
-    --tile-text-color: white;
-    --anim-time: 0.25s;
+    --font-size: #{$font-size};
+    --font-family: #{$font-family};
 
-    --glass-opacity: 0.2;
-    --glass-blur: 4px;
+    --tile-size: #{$tile-size};
+    --tile-text-color: #{$tile-text-color};
+    --anim-time: #{$anim-time};
 
-    --header-height: 5em;
+    --glass-opacity: #{$glass-opacity};
+    --glass-blur: #{$glass-blur};
+
+    --background: #{$background};
 }
 
 @media screen and (max-width: 650px) {
     @import "styles/mobile/mobile";
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1921px) {
     @import "styles/large/large";
 }

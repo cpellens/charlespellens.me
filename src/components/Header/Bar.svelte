@@ -10,6 +10,7 @@
 <style lang="scss">
     header {
         background-color: var(--secondary-color);
+        backdrop-filter: blur(var(--glass-blur));
         height: var(--header-height);
         line-height: var(--header-height);
         padding: 0 1em;
@@ -17,6 +18,5 @@
         width: 100%;
         top: 0;
         z-index: 1;
-        box-shadow: 0 0 var(--glass-blur) rgba(black, var(--glass-opacity));
     }
 </style>

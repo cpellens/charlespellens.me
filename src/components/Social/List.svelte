@@ -31,7 +31,6 @@
             font-weight: bolder;
             font-size: 2em;
             margin: 0 0 1em;
-            text-shadow: 0 0.2rem 0.5rem rgba(white, var(--glass-opacity));
         }
     }
 </style>

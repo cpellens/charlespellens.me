@@ -10,5 +10,5 @@
 }
 
 @mixin fadeIn {
-    animation: fade-in calc(4 * var(--anim-time)) 1 forwards;
+    animation: fade-in calc(2 * var(--anim-time)) 1 forwards;
 }

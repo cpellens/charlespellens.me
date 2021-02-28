@@ -1,9 +1,14 @@
 <script>
     import 'boxicons';
     import AboutMe from "./Profile/AboutMe.svelte";
-    import Bar from "./Header/Bar.svelte";
+    import HeaderBar from "./Header/Bar.svelte";
     import FooterBar from "./Footer/Bar.svelte";
     import List from "./Social/List.svelte";
+
+    /**
+     * When our days are done,
+     * You'll mean to me as much as you never did.
+     */
 
     let config = {
         snapchat: 'https://snapchat.com/add/',
@@ -64,32 +69,15 @@
     $: document.title = `${profile.name} - Socials`;
 </script>
 
-<Bar text="{profile.name}"/>
-
+<HeaderBar text="{profile.name}"/>
 <main>
     <AboutMe bind:profile/>
     <List bind:socials bind:config/>
 </main>
-
 <FooterBar/>
 
 <style lang="scss">
-    @import "../variables";
-    @import "../styles/components";
-
-    :global(html, body) {
-        margin: 0;
-        padding: 0;
-        height: calc(100% - var(--header-height));
-    }
-
-    :global(body) {
-        background-image: url("/dist/assets/images/bkg.jpg");
-        background-size: cover;
-        background-attachment: fixed;
-        font-family: var(--font-family);
-        font-size: var(--font-size);
-    }
+    @import '../main';
 
     main {
         margin-top: calc(var(--header-height) + var(--spacing));
