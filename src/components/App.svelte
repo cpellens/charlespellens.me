@@ -1,9 +1,9 @@
 <script>
-    import Name from "./Name.svelte";
     import SocialsList from "./SocialsList.svelte";
     import AboutMe from "./Profile/AboutMe.svelte";
 
     import 'boxicons';
+    import Bar from "./Header/Bar.svelte";
 
     let config = {
         snapchat: 'https://snapchat.com/add/',
@@ -60,9 +60,11 @@
             label: 'www.charlespellens.com'
         }
     ];
+
+    $: document.title = `${profile.name} - Socials`;
 </script>
 
-<Name name="{profile.name}"/>
+<Bar text="{profile.name}"/>
 
 <main>
     <AboutMe bind:profile/>
