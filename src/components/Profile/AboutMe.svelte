@@ -72,12 +72,11 @@
             margin: var(--spacing);
             font-family: inherit;
             outline: none;
-            border: none;
             border-radius: 0;
             cursor: pointer;
             padding: var(--spacing);
-            background-color: rgba(white, var(--glass-opacity));
-            backdrop-filter: blur(var(--glass-blur));
+            background: transparent;
+            border: solid rgba(white, var(--glass-opacity)) calc(var(--spacing) * 0.25);
             color: white;
             font-size: inherit;
             flex: 1;

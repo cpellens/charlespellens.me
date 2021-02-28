@@ -48,13 +48,13 @@
         display: flex;
         flex-direction: row;
         margin: calc(var(--spacing) * 2) 0;
-        background-color: rgba($buttonColor, var(--glass-opacity));
         cursor: pointer;
         transition: var(--anim-time) background-color, var(--anim-time) box-shadow;
+        border: solid rgba(white, var(--glass-opacity)) calc(var(--spacing) * 0.25);
+        box-sizing: border-box;
 
         &:hover {
-            background-color: rgba($buttonColor, calc(var(--glass-opacity) + 0.2));
-            box-shadow: inset 0 0 var(--spacing) rgba($buttonColor, 0.2);
+            background-color: rgba($buttonColor, var(--glass-opacity));
         }
 
         &:last-of-type {
