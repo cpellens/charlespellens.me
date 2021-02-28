@@ -4,6 +4,7 @@
 
     import 'boxicons';
     import Bar from "./Header/Bar.svelte";
+    import FooterBar from "./Footer/Bar.svelte";
 
     let config = {
         snapchat: 'https://snapchat.com/add/',
@@ -17,7 +18,7 @@
     let profile = {
         name: 'Charles Pellens',
         profilePic: '/dist/assets/images/profile.jpg',
-        bio: 'Hey, I\'m Charles! I\'m always up to something new so be sure to connect with me on my socials below.',
+        bio: 'Hey, I\'m Charles! I\'m always up to something new so be sure to connect with me on my socials below to see what I\'m creating next!',
         showAboutMe: false
     };
 
@@ -70,6 +71,8 @@
     <AboutMe bind:profile/>
     <SocialsList bind:socials bind:config/>
 </main>
+
+<FooterBar />
 
 <style>
     @import '../main.scss';

@@ -63,6 +63,7 @@
                     margin: 0;
                     box-sizing: border-box;
                     flex: 1;
+                    text-align: justify;
                 }
             }
         }
