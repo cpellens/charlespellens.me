@@ -4,11 +4,6 @@
     import FooterBar from "./Footer/Bar.svelte";
     import List from "./Social/List.svelte";
 
-    /**
-     * When our days are done,
-     * You'll mean to me as much as you never did.
-     */
-
     let config = {
         snapchat: 'https://snapchat.com/add/',
         instagram: 'https://instagram.com/',

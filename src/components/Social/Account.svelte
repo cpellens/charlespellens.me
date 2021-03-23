@@ -25,6 +25,7 @@
             return;
         }
 
+        window.mixpanel.track("social-click", account);
         window.open(service + account.value);
     };
 </script>
