@@ -1,5 +1,4 @@
 <script>
-    import 'boxicons';
     import AboutMe from "./Profile/AboutMe.svelte";
     import HeaderBar from "./Header/Bar.svelte";
     import FooterBar from "./Footer/Bar.svelte";
