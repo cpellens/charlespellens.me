@@ -6,6 +6,7 @@ import {terser} from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import scss from 'rollup-plugin-scss';
 import preprocess from "svelte-preprocess";
+import polyfills from "rollup-plugin-node-polyfills";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -54,6 +55,8 @@ export default {
         // a separate file - better for performance
         scss(),
         css({output: 'bundle.css'}),
+
+        polyfills(),
 
         // If you have external dependencies installed from
         // npm, you'll most likely need these plugins. In

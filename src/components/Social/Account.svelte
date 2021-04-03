@@ -22,6 +22,7 @@
         const service = config[account.service.toLowerCase()];
 
         if (typeof service === 'undefined') {
+            console.warn("Invalid Service", account);
             return;
         }
 

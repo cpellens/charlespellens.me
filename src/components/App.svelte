@@ -3,6 +3,7 @@
     import HeaderBar from "./Header/Bar.svelte";
     import FooterBar from "./Footer/Bar.svelte";
     import List from "./Social/List.svelte";
+    import {onMount} from "svelte";
 
     let config = {
         snapchat: 'https://snapchat.com/add/',
@@ -59,6 +60,10 @@
             label: 'www.charlespellens.com'
         }
     ];
+
+    onMount(() => {
+        window.mixpanel.track('load');
+    });
 
     $: document.title = `${profile.name} - Socials`;
 </script>
