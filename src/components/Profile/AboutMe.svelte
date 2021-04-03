@@ -4,6 +4,16 @@
     $: showAboutMe = profile.showAboutMe || window.innerHeight >= 1000;
     $: showProfilePic = showAboutMe && (typeof profile.profilePic !== 'undefined');
     $: showBioSection = showAboutMe && !!profile.bio;
+
+    const showAboutMeSection = () => {
+        if (typeof window.mixpanel !== 'undefined') {
+            window.mixpanel.track('show-about-me', () => {
+                profile.showAboutMe = true;
+            });
+        } else {
+            profile.showAboutMe = true;
+        }
+    };
 </script>
 
 <section>
@@ -20,7 +30,7 @@
     {/if}
 
     {#if !showAboutMe}
-        <button on:click={() => profile.showAboutMe = true}>More About Me...</button>
+        <button on:click={showAboutMeSection}>More About Me...</button>
     {/if}
 </section>
 
