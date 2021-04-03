@@ -26,8 +26,13 @@
             return;
         }
 
-        window.mixpanel.track("social-click", account);
-        window.open(service + account.value);
+        if (typeof window.mixpanel !== 'undefined') {
+            window.mixpanel.track("social-click", account, () => {
+                window.open(service + account.value);
+            });
+        } else {
+            window.open(service + account.value);
+        }
     };
 </script>
 
