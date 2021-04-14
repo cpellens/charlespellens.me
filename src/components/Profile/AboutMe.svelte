@@ -7,9 +7,8 @@
 
     const showAboutMeSection = () => {
         if (typeof window.mixpanel !== 'undefined') {
-            window.mixpanel.track('show-about-me', () => {
-                profile.showAboutMe = true;
-            });
+            profile.showAboutMe = true;
+            window.mixpanel.track('show-about-me');
         } else {
             profile.showAboutMe = true;
         }
@@ -19,6 +18,7 @@
 <section>
     {#if showProfilePic}
         <aside class="profile-pic">
+            <!--suppress HtmlUnknownTarget -->
             <img src="{profile.profilePic}" alt="Profile Pic"/>
         </aside>
     {/if}
