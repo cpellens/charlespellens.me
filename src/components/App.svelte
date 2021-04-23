@@ -62,7 +62,9 @@
     ];
 
     onMount(() => {
-        window.mixpanel.track('load');
+        if (window.location.toString().match(/\?no_track/i) === null) {
+            window.mixpanel.track('load');
+        }
     });
 
     $: document.title = `${profile.name} - Socials`;
