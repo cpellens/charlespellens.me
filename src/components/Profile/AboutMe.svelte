@@ -25,7 +25,7 @@
 
     {#if showBioSection}
         <aside class="bio">
-            <p>{profile.bio || 'Hey! Check out my socials below!'}</p>
+            <p>{@html (profile.bio || 'Hey! Check out my socials below!')}</p>
         </aside>
     {/if}
 
