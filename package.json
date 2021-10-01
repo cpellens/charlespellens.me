@@ -26,6 +26,7 @@
     "axios": "^0.21.1",
     "mixpanel-browser": "^2.41.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
+    "sass": "^1.35.2",
     "sirv-cli": "^1.0.11"
   }
 }

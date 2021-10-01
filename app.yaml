@@ -1,0 +1,19 @@
+runtime: nodejs14
+env: standard
+instance_class: F1
+handlers:
+  - url: /build/(.+\..+)$
+    static_files: public/build/\1
+    require_matching_file: false
+    upload: public/build/(.+\..+)$
+  - url: /(.+\..+)$
+    static_files: public/\1
+    require_matching_file: false
+    upload: public/(.+\..+)$
+  - url: /.*
+    secure: always
+    static_files: public/index.html
+    require_matching_file: false
+    upload: public/index.html
+  - url: .*
+    script: auto

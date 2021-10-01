@@ -1,36 +1,50 @@
 <script>
     import Account from "./Account.svelte";
 
-    export let socials = [];
-    export let config  = {};
+    export let socials = [];    // Imported from Prismic, Bound in App.svelte
+    export let config = {};     // Bound in App.svelte
 </script>
 
 <div class="socials">
     <h2>Social Media Accounts</h2>
 
-    {#each socials as account}
-        <Account bind:account bind:config/>
-    {/each}
+    {#if socials.length}
+
+        {#each socials as account}
+            <Account bind:account bind:config/>
+        {/each}
+
+    {:else}
+
+        <p>
+            Please wait... we're loading this user's accounts!
+        </p>
+
+    {/if}
 </div>
 
 <style lang="scss">
-    div.socials {
-        background-color: rgba(white, var(--glass-opacity));
-        backdrop-filter: blur(var(--glass-blur));
-        padding: 2em calc(var(--big-spacing) * 0.5);
-        box-sizing: border-box;
-        margin: 0 auto;
-        width: var(--width);
+  div.socials {
+    background-color: rgba(white, var(--glass-opacity));
+    backdrop-filter: blur(var(--glass-blur));
+    padding: 2em calc(var(--big-spacing) * 0.5);
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: var(--width);
 
-        h2 {
-            color: var(--tertiary-color);
-            text-align: center;
-            padding: 0;
-            line-height: 1em;
-            user-select: none;
-            font-weight: bolder;
-            font-size: 2em;
-            margin: 0 0 1em;
-        }
+    h2 {
+      color: var(--tertiary-color);
+      text-align: center;
+      padding: 0;
+      line-height: 1em;
+      user-select: none;
+      font-weight: bolder;
+      font-size: 2em;
+      margin: 0 0 1em;
     }
+
+    p {
+      color: white;
+    }
+  }
 </style>
