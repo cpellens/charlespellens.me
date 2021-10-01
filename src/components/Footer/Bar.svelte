@@ -1,6 +1,6 @@
 <footer>
     <aside>
-        <strong>Created by Charles M. Pellens</strong> &copy; 2021 - All rights reserved.
+        Created by <strong>Charles M. Pellens</strong> &copy; 2021 - All rights reserved.
     </aside>
 
     <aside>
