@@ -1,10 +1,10 @@
 <footer>
     <aside>
-        <strong>Michigan Web Development</strong> &copy; 2021 - All rights reserved.
+        <strong>Created by Charles M. Pellens</strong> &copy; 2021 - All rights reserved.
     </aside>
 
     <aside>
-        <a href="mailto:contact@michiganwebdev.com">Want a website like this?</a>
+        <a href="mailto:contact@charlespellens.com">Want a website like this?</a>
     </aside>
 </footer>
 
