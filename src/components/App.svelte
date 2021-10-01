@@ -102,6 +102,6 @@
   @import '../main';
 
   main {
-    margin-top: calc(var(--header-height) + var(--spacing));
+    margin-top: calc(var(--header-height) + var(--half-big-spacing));
   }
 </style>

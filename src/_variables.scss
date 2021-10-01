@@ -1,21 +1,22 @@
 $glass-blur: 16px;
 $glass-opacity: 0.2;
 
-$color-primary: #c6eadb;
+$color-primary: #9EADBD;
 $color-secondary: rgba(white, var(--glass-opacity));
-$color-tertiary: #ffffbe;
-$color-background: #ffaabb;
+$color-tertiary: #F1F1E6;
+$color-background: #3B4856;
 
-$header-height: 5em;
+$header-height: 8rem;
 $width: 600px;
 
 $spacing: 12px;
-$big-spacing: 4em;
+$big-spacing: 4rem;
+$half-big-spacing: 2rem;
 
 $font-size: 16pt;
-$font-family: hero-new, sans-serif;
+$font-family: Roboto, sans-serif;
 
-$tile-size: 64px;
+$tile-size: 4rem;
 $tile-text-color: white;
 
 $anim-time: 0.25s;
@@ -38,6 +39,7 @@ $background: linear-gradient(225deg, $color-background, #{darken($color-backgrou
     --spacing: #{$spacing};
 
     --big-spacing: #{$big-spacing};
+    --half-big-spacing: #{$half-big-spacing};
 
     --font-size: #{$font-size};
     --font-family: #{$font-family};

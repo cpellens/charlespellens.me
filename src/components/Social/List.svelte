@@ -27,20 +27,21 @@
   div.socials {
     background-color: rgba(white, var(--glass-opacity));
     backdrop-filter: blur(var(--glass-blur));
-    padding: 2em calc(var(--big-spacing) * 0.5);
+    padding: var(--half-big-spacing) var(--half-big-spacing);
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: var(--half-big-spacing) auto;
     width: var(--width);
 
     h2 {
       color: var(--tertiary-color);
       text-align: center;
       padding: 0;
-      line-height: 1em;
+      line-height: 1.5em;
       user-select: none;
       font-weight: bolder;
       font-size: 2em;
-      margin: 0 0 1em;
+      margin: 0;
+      letter-spacing: 0.05em;
     }
 
     p {
