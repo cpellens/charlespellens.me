@@ -1,25 +1,31 @@
-<script>
-    export let profile = {};
+<script lang="ts">
+    import type { Profile } from "$lib/types/profile";
+    import { getMixpanel } from "../mixpanel";
 
-    $: showAboutMe = profile.showAboutMe || window.innerHeight >= 1000;
+    export const ssr = false;
+    export let profile: Profile;
+
+    let innerHeight: number;
+
+    $: showAboutMe = profile?.showAboutMe || innerHeight >= 1000;
     $: showProfilePic = showAboutMe && (typeof profile.profilePic !== 'undefined');
     $: showBioSection = showAboutMe && !!profile.bio;
 
-    const showAboutMeSection = () => {
-        if (typeof window.mixpanel !== 'undefined') {
-            profile.showAboutMe = true;
-            window.mixpanel.track('show-about-me');
-        } else {
-            profile.showAboutMe = true;
-        }
-    };
+    const showAboutMeSection = async () => {
+      profile.showAboutMe = true;
+
+      const mixpanel = await getMixpanel();
+      mixpanel?.track('show-about-me');
+    }
 </script>
+
+<svelte:window bind:innerHeight/>
 
 <section>
     {#if showProfilePic}
         <aside class="profile-pic">
             <!--suppress HtmlUnknownTarget -->
-            <img src="{profile.profilePic}" alt="Profile Pic"/>
+            <img src="{profile.profilePic}" alt="Photo of {profile.name}"/>
         </aside>
     {/if}
 

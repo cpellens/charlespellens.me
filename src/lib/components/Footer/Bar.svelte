@@ -1,11 +1,17 @@
+<script lang="ts">
+    import { PUBLIC_EMAIL_CONTACT_ME } from "$env/static/public";
+</script>
+
 <footer>
     <aside>
         Created by <strong>Charles M. Pellens</strong> &copy; 2021 - All rights reserved.
     </aside>
 
+    {#if PUBLIC_EMAIL_CONTACT_ME}
     <aside>
-        <a href="mailto:contact@charlespellens.com">Want a website like this?</a>
+        <a href="mailto:{PUBLIC_EMAIL_CONTACT_ME}">Want a website like this?</a>
     </aside>
+    {/if}
 </footer>
 
 <style lang="scss">

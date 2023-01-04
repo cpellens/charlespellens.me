@@ -1,6 +1,11 @@
-<script>
-    export let account = {};
-    export let config = {};
+<script lang="ts">
+    import type { Account } from "$lib/types/account";
+    import type { Services } from "$lib/types/services";
+    import { getMixpanel } from "../mixpanel";
+
+
+    export let account: Account;
+    export let config: Services;
 
     const getIconName = () => {
         switch (account.type) {
@@ -18,25 +23,34 @@
         }
     };
 
-    const onClick = () => {
+    const onClick = async () => {
         const service = config[account.service.toLowerCase()];
 
-        if (typeof service === 'undefined') {
-            console.warn("Invalid Service", account);
+        if (!service) {
+            console.warn("Invalid Service", {
+              account,
+              config
+            });
             return;
         }
 
-        if (typeof window.mixpanel !== 'undefined') {
-            window.mixpanel.track("social-click", account, () => {
-                window.open(service + account.value);
-            });
-        } else {
-            window.open(service + account.value);
-        }
+        const mixpanel = await getMixpanel();
+        mixpanel?.track("social-click", account);
+
+        open(service + account.value);
     };
+
+    const onKeyUp = async(e: KeyboardEvent): Promise<boolean> => {
+      if (e.key === "return") {
+        await onClick();
+        return true;
+      }
+
+      return false;
+    }
 </script>
 
-<figure on:click={onClick}>
+<figure on:click={onClick} on:keyup={onKeyUp}>
     <aside>
         <span>
             <box-icon name="{getIconName()}" size="md" type="{getIconType()}"></box-icon>

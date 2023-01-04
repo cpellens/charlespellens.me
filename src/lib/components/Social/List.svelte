@@ -1,7 +1,8 @@
-<script>
-    import Account from "./Account.svelte";
+<script lang="ts">
+    import AccountComponent from "./Account.svelte";
+    import type {Account} from "$lib/types/account";
 
-    export let socials = [];    // Imported from Prismic, Bound in App.svelte
+    export let socials: Account[] = [];    // Imported from Prismic, Bound in App.svelte
     export let config = {};     // Bound in App.svelte
 </script>
 
@@ -11,7 +12,7 @@
     {#if socials.length}
 
         {#each socials as account}
-            <Account bind:account bind:config/>
+            <AccountComponent bind:account bind:config/>
         {/each}
 
     {:else}
