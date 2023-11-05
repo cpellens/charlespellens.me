@@ -1,15 +1,28 @@
 import { env } from "$env/dynamic/private";
 import { getPrismicClient } from "$lib/api/prismic";
+import Keyv from "keyv";
 import type { Profile } from "$lib/types/profile"
 import type { Services } from "$lib/types/services";
-import type { Client } from "@prismicio/client";
 
 export type ProfilePageData = {
     profile: Profile,
     services: Services
 }
 
-async function getProfile(prismic: Client): Promise<Profile> {
+let connectionString = undefined;
+if (env.REDIS_CONNECTION_STR) {
+    connectionString = `${env.REDIS_CONNECTION_STR}`;
+}
+
+const cache: Keyv = new Keyv(connectionString);
+
+async function getProfile(): Promise<Profile> {
+    if (await cache.has('profile')) {
+        return cache.get('profile');
+    }
+
+    const prismic = await getPrismicClient();
+
     let profile: Profile = {
         bio: [],
         name: '',
@@ -37,14 +50,13 @@ async function getProfile(prismic: Client): Promise<Profile> {
         });
     }
 
+    await cache.set('profile', profile);
+
     return profile;
 }
 
 export async function load() {
-    const prismic = await getPrismicClient();
-    const profile = await getProfile(prismic);
-
     return {
-        profile
+        profile: await getProfile()
     }
 }
