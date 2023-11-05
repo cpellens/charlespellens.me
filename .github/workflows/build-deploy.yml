@@ -1,6 +1,8 @@
 name: Build and Deploy
 on:
   release:
+    types:
+      - published
 
 jobs:
   Build:
@@ -14,7 +16,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm build
-      - uses: actions/upload-artifacts@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: built-application
           path: build/
