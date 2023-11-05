@@ -5,6 +5,9 @@ on:
 env:
   PUBLIC_EMAIL_CONTACT_ME: ${{ github.actor }}
   PUBLIC_MIXPANEL_API_KEY: ${{ secrets.MIXPANEL_API_KEY }}
+  PRISMIC_ENDPOINT_API: ${{ secrets.PRISMIC_ENDPOINT_API }}
+  PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
+  PRISMIC_DATA_KEY_PROFILE: ${{ secrets.PRISMIC_DATA_KEY_PROFILE }}
 
 jobs:
   Build:
