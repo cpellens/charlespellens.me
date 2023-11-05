@@ -1,32 +1,39 @@
 <script lang="ts">
-    import AboutMe from "$lib/components/Profile/AboutMe.svelte";
-    import List from "$lib/components/Social/List.svelte";
-    import type { PageData } from "./$types";
-    import type { ProfilePageData } from "./+layout.server";
+  import List from "$lib/components/Social/List.svelte";
+  import type { PageData } from "./$types";
+  import Name from "$lib/components/Header/Name.svelte";
 
-    export let data: PageData & ProfilePageData;
+  import {asHTML} from "@prismicio/client"
+  import type { Profile } from "$lib/types/profile";
 
-    $: profile = data.profile;
+  export let data: PageData;
+
+  let profile: Profile;
+  $: profile = data.profile;
 </script>
 
-<main>
-    {#if profile}
-        <AboutMe {profile}/>
+{#if profile}
+  <div class="grid grid-cols-4 gap-4 mt-4">
+    <!-- Row 1: Headings -->
+    <div class="col-span-1">
+      <Name text={data.profile.name} />
+    </div>
+    <div class="col-span-2 select-none">
+      <h2 class="font-heading font-bold text-2xl text-cyan-700 subpixel-antialiased">About {profile.name.split(' ')[0]}</h2>
+    </div>
+    <div class="col-span-1 select-none">
+      <h2 class="text-cyan-700 font-heading text-2xl font-bold subpixel-antialiased">Links &amp; Accounts</h2>
+    </div>
 
-        {#if profile.accounts.length}
-            <List socials={data.profile.accounts} config={data.services}/>
-        {:else}
-            <p>I do not have any accounts configured!</p>
-        {/if}
-    {:else}
-        <p>Loading profile...</p>
-    {/if}
-</main>
-
-<style lang="scss">
-    @import '$lib/main';
-
-    main {
-        margin-top: calc(var(--header-height) + var(--half-big-spacing));
-    }
-</style>
+    <!-- Row 2: Content -->
+    <div class="aspect-square flex items-start select-none pointer-events-none col-span-1">
+        <img src="{profile.profilePic}" alt="Photo of {profile.name}" class="rounded max-h-[25vh]"/>
+    </div>
+    <div class="col-span-2 flex flex-col gap-4 indent-2">
+      {@html asHTML(profile.bio)}
+    </div>
+    <div class="col-span-1">
+      <List socials={data.profile.accounts} />
+    </div>
+  </div>
+{/if}

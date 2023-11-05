@@ -1,26 +1,35 @@
 <script lang="ts">
-    import Header from "$lib/components/Header/Bar.svelte";
-    import type { PageData } from './$types';
-    import Footer from "$lib/components/Footer/Bar.svelte";
-    import type { ProfilePageData } from './+layout.server';
-    import { onMount } from 'svelte';
-    import { getMixpanel } from '$lib/components/mixpanel';
+  import Footer from "$lib/components/Footer/Bar.svelte";
+  import { onMount } from "svelte";
+  import { getMixpanel } from "$lib/components/mixpanel";
 
-    export let data: PageData & ProfilePageData
+  import "../app.css"
 
-    onMount(async () => {
-        const mixpanel = await getMixpanel();
-        mixpanel?.track('load');
+  onMount(async () => {
+    // @ts-ignore
+    import('boxicons');
 
-        // @ts-ignore
-        await import('boxicons');
-    });
+    const mixpanel = await getMixpanel();
+    mixpanel?.track("load");
+  });
 </script>
 
 <svelte:head>
-    <title>{data.profile.name} - Socials</title>
+  <link rel="icon" href="/favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;300;400;500;700&family=Open+Sans:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
 </svelte:head>
 
-<Header text="{data.profile.name}"/>
-<slot/>
-<Footer/>
+<main class="container mx-auto">
+  <slot />
+</main>
+
+<Footer />

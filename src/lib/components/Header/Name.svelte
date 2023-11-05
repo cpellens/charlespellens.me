@@ -2,26 +2,8 @@
     export let text: string;
 </script>
 
-<h1>
+<h1 class="text-2xl font-heading flex gap-1 pointer-events-none select-none subpixel-antialiased">
     {#each text.split(' ') as word}
-        <span>{word}</span>
+        <span class="first-of-type:text-cyan-700 first-of-type:font-bold">{word}</span>
     {/each}
 </h1>
-
-<style lang="scss">
-    h1 {
-        color: var(--primary-color);
-        font-size: 2.5em;
-        opacity: 1;
-        user-select: none;
-        margin: 0;
-
-        span:nth-of-type(odd) {
-            color: white;
-        }
-
-        span {
-            margin: 0 0.5rem;
-        }
-    }
-</style>

@@ -1,4 +1,5 @@
 import { dev } from "$app/environment";
+import { PUBLIC_MIXPANEL_API_KEY } from "$env/static/public";
 import {init, type Mixpanel} from "mixpanel-browser";
 
 let mixpanel: Mixpanel;
@@ -13,7 +14,7 @@ export async function getMixpanel(): Promise<Mixpanel|null> {
         return mixpanel;
     }
 
-    mixpanel = init("fb16d05bbe2c8ee0949a9f2112eea62b", {}, "charlespellens.me");
+    mixpanel = init(PUBLIC_MIXPANEL_API_KEY, {}, "charlespellens.me");
 
     return mixpanel
 }
