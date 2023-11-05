@@ -37,9 +37,11 @@ jobs:
           echo "RELEASE_TAG=${release_tag}" >> $GITHUB_OUTPUT;
           echo "RELEASE_ID=${release_id}" >> $GITHUB_OUTPUT;
         id: create-release
-      - name: Upload Artifacts
+      - name: Create Artifact
         run: |
-          tar -cvzf app.tar.gz build/
+          tar -cvzf app.tar.gz build/ node_modules/ package.json package-lock.json
+      - name: Upload Artifact
+        run: |
           curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
