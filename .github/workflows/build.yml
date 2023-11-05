@@ -21,8 +21,34 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: built-application
-          path: build/
-          retention-days: 7
+      - run: |
+          version="v$(date +%Y.%m.%d%H%M)${{ github.run_number }}""
+          release_json=$(curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ github.repository }}/releases \
+            -d '{"tag_name":"$version","target_commitish":"${{ github.sha }}","name":"Release $version","draft":true,"prerelease":false,"generate_release_notes":true}');
+          release_id="$(echo $release_json | jq -r .id)";
+          release_tag="$(echo $release_json | jq -r .tag_name)";
+          echo "RELEASE_TAG=${release_tag}" >> $GITHUB_OUTPUT;
+          echo "RELEASE_ID=${release_id}" >> $GITHUB_OUTPUT;
+        id: create-release
+      - name: Upload Artifacts
+        run: |
+          tar -cvzf build.tar.gz build/
+          curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/octet-stream" \
+            "https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.create-release.outputs.RELEASE_ID }}/assets?name=build.tar.gz" \
+            --data-binary "@build.tar.gz";
+          curl -L \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.create-release.outputs.RELEASE_ID }} \
+            -d '{"draft":false}';
