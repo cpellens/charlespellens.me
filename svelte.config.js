@@ -9,8 +9,7 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			precompress: true,
-			polyfill: false
+			precompress: true
 		}),
 	}
 };
