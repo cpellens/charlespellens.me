@@ -1,0 +1,20 @@
+name: Build
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Application
+    environment: Production
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: built-application
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'pellens'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZ_PUBLISH_PROFILE }}
