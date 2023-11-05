@@ -28,4 +28,4 @@ jobs:
           app-name: 'pellens'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZ_PUBLISH_PROFILE }}
-          package: .
+          package: build
