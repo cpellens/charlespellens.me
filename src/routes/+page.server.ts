@@ -1,4 +1,4 @@
-import { PRISMIC_DATA_KEY_PROFILE } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 import { getPrismicClient } from "$lib/api/prismic";
 import type { Profile } from "$lib/types/profile"
 import type { Services } from "$lib/types/services";
@@ -18,7 +18,7 @@ async function getProfile(prismic: Client): Promise<Profile> {
         accounts: []
     }
 
-    const prismicProfile = await prismic.getByType(PRISMIC_DATA_KEY_PROFILE);
+    const prismicProfile = await prismic.getByType(env.PRISMIC_DATA_KEY_PROFILE);
     if (prismicProfile.results.length > 0) {
         const profileData = prismicProfile.results.pop()?.data as Record<string, any>;
 
