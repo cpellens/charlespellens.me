@@ -1,6 +1,8 @@
 name: Build
 on:
   push:
+    branches:
+      - '*'
 
 env:
   PUBLIC_EMAIL_CONTACT_ME: ${{ github.actor }}
@@ -22,7 +24,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: |
-          version="v$(date +%Y.%m.%d%H%M)${{ github.run_number }}""
+          version="v$(date +%Y.%m.%d%H%M)${{ github.run_number }}"
           release_json=$(curl -L \
             -X POST \
             -H "Accept: application/vnd.github+json" \
