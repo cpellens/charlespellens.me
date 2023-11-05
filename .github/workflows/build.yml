@@ -32,7 +32,7 @@ jobs:
         id: create-release
       - name: Create Artifact
         run: |
-          tar -cvzf app.tar.gz build/ package.json
+          tar -cvzf app.tar.gz build/ package.json package-lock.json
       - name: Upload Artifact
         run: |
           curl -L \
