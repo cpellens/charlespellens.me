@@ -39,11 +39,11 @@ jobs:
         id: create-release
       - name: Upload Artifacts
         run: |
-          tar -cvzf build.tar.gz build/
+          tar -cvzf app.tar.gz build/
           curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -H "Content-Type: application/octet-stream" \
-            "https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.create-release.outputs.RELEASE_ID }}/assets?name=build.tar.gz" \
-            --data-binary "@build.tar.gz";
+            "https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.create-release.outputs.RELEASE_ID }}/assets?name=app.tar.gz" \
+            --data-binary "@app.tar.gz";
